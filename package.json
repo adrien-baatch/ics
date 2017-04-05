@@ -20,10 +20,7 @@
     "date-time",
     "events"
   ],
-  "contributors": [
-    "Adam Gibbons <adam@agibbons.com>",
-    "Adrien Atzert <adrien.atzert@baatch.com>"
-  ],
+  "author": "Adam Gibbons <adam@agibbons.com>",
   "contributors": [
     "Adrien Atzert <adrien.atzert@baatch.com>",
     "Green Pioneer <info@greenpioneersolutions.com>",
