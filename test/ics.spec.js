@@ -163,33 +163,4 @@ describe('ICS', function() {
     });
   });
 
-  describe('getDestination()', function() {
-    var ics = new ICS();
-
-    it('returns the default filename when no argument passsed', function() {
-      expect(ics.getDestination().indexOf('event.ics')).to.be.greaterThan(-1);
-    });
-
-    it('returns the default filename when falsy arguments passsed', function() {
-      expect(ics.getDestination(null).indexOf('event.ics')).to.be.greaterThan(-1);
-      expect(ics.getDestination(false).indexOf('event.ics')).to.be.greaterThan(-1);
-      expect(ics.getDestination(0).indexOf('event.ics')).to.be.greaterThan(-1);
-    });
-
-    it('returns an ics file in the cwd when passed only a filename', function() {
-      expect(ics.getDestination('foo.ics')).to.equal(path.join(process.cwd(), 'foo.ics'));
-      expect(ics.getDestination('foo')).to.equal(path.join(process.cwd(), 'foo.ics'));
-    });
-
-    it('returns an ics file in another directory when passed a relative path', function() {
-      expect(ics.getDestination('../foo/bar')).to.equal(path.resolve(path.join(process.cwd(), '../foo', 'bar.ics')));
-      expect(ics.getDestination('../baz.ics')).to.equal(path.resolve(path.join(process.cwd(), '..', 'baz.ics')));
-    });
-
-    it('returns an ics file when passed an absoute path', function() {
-      expect(ics.getDestination('/foo.ics')).to.equal('/foo.ics');
-      expect(ics.getDestination('/foo')).to.equal('/foo.ics');
-    });
-  });
-
 });
