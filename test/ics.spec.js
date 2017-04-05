@@ -95,33 +95,9 @@ describe('ICS', function() {
         .to.be.greaterThan(-1);
     });
 
-    it('sets a floating, DATE-TIME-typed DTSTART when passed a DATE-TIME-typed start param with neither a UTC designator nor a timezone', function() {
-      expect(ics.buildEvent({start: '2017-09-25 02:30:00'}).search('DTSTART:20170925T023000\r\n'))
-        .to.be.greaterThan(-1);
-    });
-
     it('sets an absolute, DATE-TIME-typed DTSTART when passed a DATE-TIME-typed start param with a UTC designator and no timezone', function() {
       expect(ics.buildEvent({start: '2017-09-25T02:30:00.000Z'}).search('DTSTART:20170925T023000Z\r\n'))
         .to.be.greaterThan(-1);
-    });
-
-    it('sets a floating, DATE-TIME-typed DTEND with same value as DTSTART when passed a DATE-TIME-typed start param with neither a UTC designator nor a timezone', function() {
-      expect(ics.buildEvent({start: '2017-09-25 02:30:00'}).search('DTEND:20170925T023000\r\n'))
-        .to.be.greaterThan(-1);
-    });
-
-    it('sets the same time zone ID on DTSTART and DTEND when only a start TZID is provided', function() {
-      var evnt = ics.buildEvent({start: '2008-09-15 15:45', end: '2008-09-15 17:00', timeZone: 'America/New_York'});
-
-      expect(evnt.search('DTSTART;TZID=America/New_York:20080915T154500\r\n')).to.be.greaterThan(-1);
-      expect(evnt.search('DTEND;TZID=America/New_York:20080915T170000\r\n')).to.be.greaterThan(-1);
-    });
-
-    it('sets separate start and end time zone IDs if provided', function() {
-      var evnt = ics.buildEvent({start: '2008-09-15 15:45', end: '2008-09-15 17:00', timeZone: 'America/New_York', timeZoneEnd:'America/Chicago'});
-
-      expect(evnt.search('DTSTART;TZID=America/New_York:20080915T154500\r\n')).to.be.greaterThan(-1);
-      expect(evnt.search('DTEND;TZID=America/Chicago:20080915T170000\r\n')).to.be.greaterThan(-1);
     });
 
     it('sets event properties when passed', function() {
