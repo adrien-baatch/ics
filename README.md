@@ -102,7 +102,7 @@ Optional. Object literal accepting the following properties:
 `filepath` accepts relative or absolute paths. For example, these
 values resolve to `/Users/gibber/my-event.ics` when executed from `/Users/gibber`:
 
-- `my-event` 
+- `my-event`
 - `my-event.ics`
 - `/Users/gibber/my-event`
 - `/Users/gibber/my-event.ics`
